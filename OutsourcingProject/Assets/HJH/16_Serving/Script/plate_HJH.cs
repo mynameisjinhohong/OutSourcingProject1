@@ -19,6 +19,8 @@ public class plate_HJH : MonoBehaviour
     public GameObject plateEffect;
     public GameObject clickEffect;
 
+    public AudioSource plateSound;
+    public AudioSource spiderSound;
 
     public Animator setAni;
     public GameObject plateParent;
@@ -48,6 +50,7 @@ public class plate_HJH : MonoBehaviour
                 {
                     if(raycastHit.transform.parent.parent == gameObject.transform)
                     {
+                        plateSound.Play();
                         Instantiate(plateEffect, raycastHit.transform.position, Quaternion.identity);
                         state = State.Open;
                         setAni.SetTrigger("SpiderGo");
@@ -59,6 +62,8 @@ public class plate_HJH : MonoBehaviour
                 {
                     if (raycastHit.transform.parent == gameObject.transform)
                     {
+                        spiderSound.Play();
+                        Debug.Log("家府巢");
                         Instantiate(clickEffect, raycastHit.transform.position, Quaternion.identity);
                         GameManager.instance.score += Random.Range(50, 70);
                         spider.SetActive(false);
@@ -69,6 +74,8 @@ public class plate_HJH : MonoBehaviour
                 {
                     if (raycastHit.transform.parent == gameObject.transform)
                     {
+                        spiderSound.Play();
+                        Debug.Log("家府巢");
                         Instantiate(clickEffect, raycastHit.transform.position, Quaternion.identity);
                         GameManager.instance.score += Random.Range(80, 100);
                         spider.SetActive(false);
