@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI scoreText;
     public int score;
-    static GameManager instance = null;
+    public static GameManager instance = null;
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
