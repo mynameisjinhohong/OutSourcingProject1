@@ -46,40 +46,40 @@ public class GameManager : MonoBehaviour
         scoreText.text = "  Á¡¼ö : " + score;
         timeText.text = time.ToString();
     }
-    public void GameStart()
-    {
-        SceneManager.LoadScene(scenesName[scenesList[0]]);
-        StartCoroutine(Timer());
-    }
+    //public void GameStart()
+    //{
+    //    SceneManager.LoadScene(scenesName[scenesList[0]]);
+    //    StartCoroutine(Timer());
+    //}
 
-    IEnumerator Timer()
-    {
-        int nowTime = time;
-        int nowIdx = 1;
-        while (true)
-        {
-            yield return new WaitForSeconds(1f);
-            nowTime--;
-            if(nowTime <= 0)
-            {
-                nowTime = time;
-                nowIdx++;
-                if(nowIdx == scenesList.Count - 1)
-                {
-                    if (loop)
-                    {
-                        nowIdx = 0;
-                    }
-                    else
-                    {
-                        SceneManager.LoadScene(1);
-                        break;
-                    }
-                }
-            }
+    //IEnumerator Timer()
+    //{
+    //    int nowTime = time;
+    //    int nowIdx = 1;
+    //    while (true)
+    //    {
+    //        yield return new WaitForSeconds(1f);
+    //        nowTime--;
+    //        if(nowTime <= 0)
+    //        {
+    //            nowTime = time;
+    //            nowIdx++;
+    //            if(nowIdx == scenesList.Count - 1)
+    //            {
+    //                if (loop)
+    //                {
+    //                    nowIdx = 0;
+    //                }
+    //                else
+    //                {
+    //                    SceneManager.LoadScene(1);
+    //                    break;
+    //                }
+    //            }
+    //        }
 
-        }
-    }
+    //    }
+    //}
 
     void PassWordDone()
     {

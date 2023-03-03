@@ -19,6 +19,8 @@ public class plate_HJH : MonoBehaviour
     public GameObject plateEffect;
     public GameObject clickEffect;
 
+    public Transform platePos;
+
     public AudioSource plateSound;
     public AudioSource spiderSound;
 
@@ -27,6 +29,8 @@ public class plate_HJH : MonoBehaviour
     public GameObject plate;
     public GameObject spider;
     public GameObject food;
+
+    float currentTime;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +38,7 @@ public class plate_HJH : MonoBehaviour
         foodPositon = food.transform.position;
         foodRotation = food.transform.rotation.eulerAngles;
         spiderPosition = spider.transform.position;
+        StartCoroutine(OpenPlate());
     }
 
     // Update is called once per frame
@@ -50,11 +55,7 @@ public class plate_HJH : MonoBehaviour
                 {
                     if(raycastHit.transform.parent.parent == gameObject.transform)
                     {
-                        plateSound.Play();
-                        Instantiate(plateEffect, raycastHit.transform.position, Quaternion.identity);
-                        state = State.Open;
-                        setAni.SetTrigger("SpiderGo");
-                        plate.SetActive(false);
+
                     }
                 }
                 
@@ -63,7 +64,6 @@ public class plate_HJH : MonoBehaviour
                     if (raycastHit.transform.parent == gameObject.transform)
                     {
                         spiderSound.Play();
-                        Debug.Log("家府巢");
                         Instantiate(clickEffect, raycastHit.transform.position, Quaternion.identity);
                         GameManager.instance.score += Random.Range(50, 70);
                         spider.SetActive(false);
@@ -75,7 +75,6 @@ public class plate_HJH : MonoBehaviour
                     if (raycastHit.transform.parent == gameObject.transform)
                     {
                         spiderSound.Play();
-                        Debug.Log("家府巢");
                         Instantiate(clickEffect, raycastHit.transform.position, Quaternion.identity);
                         GameManager.instance.score += Random.Range(80, 100);
                         spider.SetActive(false);
@@ -83,6 +82,25 @@ public class plate_HJH : MonoBehaviour
                     //Invoke("SpiderEnd", 1f);
                 }
             }
+        }
+    }
+
+    IEnumerator OpenPlate()
+    {
+        while (true)
+        {
+            float b = Random.Range(1f, 3f);
+            yield return new WaitForSeconds(b);
+            int a = Random.Range(0, 4);
+            if(a == 1)
+            {
+                plateSound.Play();
+                Instantiate(plateEffect, platePos.position, Quaternion.identity);
+                state = State.Open;
+                setAni.SetTrigger("SpiderGo");
+                plate.SetActive(false);
+            }
+
         }
     }
     public void SpiderGo()
