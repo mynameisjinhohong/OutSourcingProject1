@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         scoreText.text = "  Á¡¼ö : " + score;
-        timeText.text = time.ToString();
+        //timeText.text = time.ToString();
     }
     //public void GameStart()
     //{

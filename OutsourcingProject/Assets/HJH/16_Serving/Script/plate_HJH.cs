@@ -91,8 +91,8 @@ public class plate_HJH : MonoBehaviour
         {
             float b = Random.Range(1f, 3f);
             yield return new WaitForSeconds(b);
-            int a = Random.Range(0, 4);
-            if(a == 1)
+            int a = Random.Range(0, 3);
+            if(a == 1 && plate.activeInHierarchy)
             {
                 plateSound.Play();
                 Instantiate(plateEffect, platePos.position, Quaternion.identity);
