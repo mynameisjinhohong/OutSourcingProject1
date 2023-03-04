@@ -12,10 +12,11 @@ public class GameManager : MonoBehaviour
     public TMP_InputField passWordInput;
     public int passWord;
 
+    public bool gameOver;
+
     public TextMeshProUGUI timeText;
     public List<string> scenesName;
     public List<int> scenesList;
-    public bool loop;
     public int time;
 
     public TextMeshProUGUI scoreText;
@@ -37,13 +38,17 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        
+        gameOver = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = "  점수 : " + score;
+        scoreText.text = "점수 : " + score;
+        if(score > 10000)
+        {
+            score = 10000;
+        }
         //timeText.text = time.ToString();
     }
     //public void GameStart()
