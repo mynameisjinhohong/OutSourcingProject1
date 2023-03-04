@@ -12,7 +12,22 @@ public class GameManager : MonoBehaviour
     public TMP_InputField passWordInput;
     public int passWord;
 
-    public bool gameOver;
+    bool gameOver;
+
+    public bool GameOver
+    {
+        get
+        {
+            return gameOver;
+        }
+        set
+        {
+            if(value == true)
+            {
+                //만들 예정
+            }
+        }
+    }
 
     public TextMeshProUGUI timeText;
     public List<string> scenesName;
@@ -45,9 +60,9 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         scoreText.text = "점수 : " + score;
-        if(score > 10000)
+        if(score > 100000)
         {
-            score = 10000;
+            score = 99999;
         }
         //timeText.text = time.ToString();
     }
