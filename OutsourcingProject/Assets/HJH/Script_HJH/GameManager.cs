@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
     public TextMeshProUGUI timeText;
     public List<string> scenesName;
     public List<int> scenesList;
@@ -60,9 +61,13 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         scoreText.text = "Á¡¼ö : " + score;
-        if(score > 100000)
+        if(score >= 100000)
         {
             score = 99999;
+        }
+        else if(score <= 0)
+        {
+            score = 0;
         }
         //timeText.text = time.ToString();
     }
