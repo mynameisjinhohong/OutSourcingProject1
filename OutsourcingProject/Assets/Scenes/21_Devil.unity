@@ -132,6 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 745167390}
+  - component: {fileID: 745167392}
   - component: {fileID: 745167389}
   - component: {fileID: 745167388}
   - component: {fileID: 745167391}
@@ -222,7 +223,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 745167387}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.58, y: -0.64, z: -3.481}
+  m_LocalPosition: {x: -4.58, y: -0.64, z: 17.7}
   m_LocalScale: {x: 1, y: 1, z: 3.6651704}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -244,6 +245,21 @@ MonoBehaviour:
   m_EffectColor: {r: 0.2924528, g: 0.2555172, b: 0.017933436, a: 0.5}
   m_EffectDistance: {x: 10, y: -10}
   m_UseGraphicAlpha: 1
+--- !u!114 &745167392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745167387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccd16542da154b34385c937bbd838dd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  curveStrength: 1
+  curveFrequency: 1
 --- !u!1 &756999558
 GameObject:
   m_ObjectHideFlags: 0
