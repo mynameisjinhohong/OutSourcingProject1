@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Mole_HJH : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class Mole_HJH : MonoBehaviour
     public GameObject xMark;
     AudioSource click;
 
+    public TextMeshProUGUI moleText;
+
+    int remainMole = 30;
     public GameObject clickEffect;
     void Start()
     {
@@ -17,10 +21,25 @@ public class Mole_HJH : MonoBehaviour
         StartCoroutine(Mole());
         cam = Camera.main;
     }
-
+    float currentTime;
     // Update is called once per frame
     void Update()
     {
+        moleText.text = "남은 두더지 수 : " + remainMole;
+        if(remainMole <= 0)
+        {
+            GameManager.instance.GameOver = true;
+            return;
+        }
+        currentTime += Time.deltaTime;
+        if(currentTime > 1)
+        {
+            currentTime = 0;
+            if(GameManager.instance.score > 10)
+            {
+                GameManager.instance.score -= 10;
+            }
+        }
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
@@ -35,6 +54,7 @@ public class Mole_HJH : MonoBehaviour
                     raycastHit.transform.parent.GetChild(2).gameObject.SetActive(true);
                     raycastHit.transform.gameObject.SetActive(false);
                     GameManager.instance.score += 100;
+                    remainMole -= 1;
                 }
                 else if(raycastHit.transform.name == "Mole2")
                 {
@@ -49,8 +69,6 @@ public class Mole_HJH : MonoBehaviour
                 }
             }
         }
-
-
     }
     IEnumerator Mole()
     {
