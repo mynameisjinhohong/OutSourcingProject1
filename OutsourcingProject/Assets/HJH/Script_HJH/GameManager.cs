@@ -7,6 +7,10 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public List<string> gameName;
+    public List<string> gameSubscribe;
+    public List<Sprite> gameThumbnail;
+
 
     public GameObject passWordBG;
     public TMP_InputField passWordInput;
@@ -28,6 +32,7 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
 
     public TextMeshProUGUI timeText;
     public List<string> scenesName;
@@ -54,17 +59,21 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         gameOver = false;
+        passWordInput.onSubmit.AddListener(PassWordDone);
     }
 
     // Update is called once per frame
     void Update()
     {
         scoreText.text = "Á¡¼ö : " + score;
-        if(score > 100000)
+        if(score >= 100000)
         {
             score = 99999;
         }
-        //timeText.text = time.ToString();
+        else if(score <= 0)
+        {
+            score = 0;
+        }
     }
     //public void GameStart()
     //{
@@ -101,12 +110,12 @@ public class GameManager : MonoBehaviour
     //    }
     //}
 
-    void PassWordDone()
+    public void PassWordDone(string pass)
     {
-        if(passWord == int.Parse(passWordInput.text))
+        if(passWord == int.Parse(pass))
         {
-            SceneManager.LoadScene("SettingScene");
             passWordBG.SetActive(false);
+            SceneManager.LoadScene("SettingScene");
         }
     }
 }
