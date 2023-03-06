@@ -11,15 +11,21 @@ public class GameManager : MonoBehaviour
     public List<string> gameSubscribe;
     public List<Sprite> gameThumbnail;
 
+    public Transform buttonParent;
+    public Image preview;
+    public TextMeshProUGUI subscribeText;
+    public GameObject buttonPrefab;
 
     public GameObject passWordBG;
     public TMP_InputField passWordInput;
     public int passWord;
 
     bool gameOver;
-
+    
+    
     public bool GameOver
     {
+        
         get
         {
             return gameOver;
@@ -58,6 +64,13 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
+        for(int i =0; i < gameName.Count; i++)
+        {
+            GameObject btn = Instantiate(buttonPrefab, buttonParent);
+            btn.GetComponent<GameButton_HJH>().idx = i;
+            string name = gameName[i].Replace(" ", "\n");
+            btn.GetComponent<GameButton_HJH>().gameName = name;
+        }
         gameOver = false;
         passWordInput.onSubmit.AddListener(PassWordDone);
     }
