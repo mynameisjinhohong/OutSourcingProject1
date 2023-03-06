@@ -11,15 +11,23 @@ public class GameManager : MonoBehaviour
     public List<string> gameSubscribe;
     public List<Sprite> gameThumbnail;
 
+    public Transform buttonParent;
+    public Image preview;
+    public TextMeshProUGUI subscribeText;
+    public GameObject buttonPrefab;
 
     public GameObject passWordBG;
     public TMP_InputField passWordInput;
     public int passWord;
 
-    bool gameOver;
+    public GameObject mainMenuBG;
 
+    bool gameOver;
+    
+    
     public bool GameOver
     {
+        
         get
         {
             return gameOver;
@@ -33,17 +41,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
-    public TextMeshProUGUI timeText;
     public List<string> scenesName;
-    public List<int> scenesList;
-    public int time;
 
     public TextMeshProUGUI scoreText;
     public int score;
     
     public static GameManager instance = null;
-    
+    int nowGameIdx = 0;
+
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -58,6 +63,16 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
+        for(int i =0; i < gameName.Count; i++)
+        {
+            GameObject btn = Instantiate(buttonPrefab, buttonParent);
+            btn.GetComponent<GameButton_HJH>().idx = i;
+            string name = gameName[i].Replace(" ", "\n");
+            btn.GetComponent<GameButton_HJH>().gameName = name;
+        }
+        preview.sprite = gameThumbnail[nowGameIdx];
+        subscribeText.text = gameSubscribe[nowGameIdx];
+        nowGameIdx = 0;
         gameOver = false;
         passWordInput.onSubmit.AddListener(PassWordDone);
     }
@@ -75,40 +90,25 @@ public class GameManager : MonoBehaviour
             score = 0;
         }
     }
-    //public void GameStart()
-    //{
-    //    SceneManager.LoadScene(scenesName[scenesList[0]]);
-    //    StartCoroutine(Timer());
-    //}
+    public void GameStart()
+    {
+        SceneManager.LoadScene(scenesName[nowGameIdx]);
+        Invoke("MainBgOff", 0.1f);
+        
+    }
 
-    //IEnumerator Timer()
-    //{
-    //    int nowTime = time;
-    //    int nowIdx = 1;
-    //    while (true)
-    //    {
-    //        yield return new WaitForSeconds(1f);
-    //        nowTime--;
-    //        if(nowTime <= 0)
-    //        {
-    //            nowTime = time;
-    //            nowIdx++;
-    //            if(nowIdx == scenesList.Count - 1)
-    //            {
-    //                if (loop)
-    //                {
-    //                    nowIdx = 0;
-    //                }
-    //                else
-    //                {
-    //                    SceneManager.LoadScene(1);
-    //                    break;
-    //                }
-    //            }
-    //        }
+    void MainBgOff()
+    {
+        mainMenuBG.SetActive(false);
 
-    //    }
-    //}
+    }
+
+    public void GameSet(int idx)
+    {
+        preview.sprite = gameThumbnail[idx];
+        subscribeText.text = gameSubscribe[idx];
+        nowGameIdx = idx;
+    }
 
     public void PassWordDone(string pass)
     {
