@@ -968,6 +968,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   remains: 0
+  remainText: {fileID: 656270400}
 --- !u!114 &2037208035
 MonoBehaviour:
   m_ObjectHideFlags: 0
