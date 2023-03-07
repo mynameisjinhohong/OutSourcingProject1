@@ -72,7 +72,7 @@ public class DustBigger_Move_CSH : MonoBehaviour
     void GetBigger()
     {
         
-        temp += Time.deltaTime;
+        temp += Time.deltaTime*1.5f;
         //사이즈 4까지 천천히 키우기
         transform.localScale = new Vector3(temp,temp,1f);
 
@@ -85,20 +85,5 @@ public class DustBigger_Move_CSH : MonoBehaviour
     void Moving()
     {
         transform.position += dir * speed * Time.deltaTime;
-    }
-
-    void Click()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            //화면에 클릭한 방향으로 ray발사
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            // Scence 에서 카메라에서 나오는 레이저 눈으로 확인하기
-            //Debug.DrawRay(ray.origin, ray.direction * 10f, Color.red, 1f);
-            if (Physics.Raycast(ray, out RaycastHit raycastHit))
-            {
-
-            }
-        }
     }
 }
