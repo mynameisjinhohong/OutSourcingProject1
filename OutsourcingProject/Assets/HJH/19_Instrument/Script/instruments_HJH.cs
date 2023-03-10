@@ -18,8 +18,15 @@ public class instruments_HJH : MonoBehaviour
         Tamberine,
         Trumpet,
         Ukurale,
-        Violin
+        Violin,
+        Zambae,
     }
+    public enum Type
+    {
+        down,
+        wait,
+    }
+
     public InstrumentsType instruments;
     // Start is called before the first frame update
     void Start()
