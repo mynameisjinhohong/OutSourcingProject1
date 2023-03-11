@@ -13,8 +13,8 @@ public class BG_lyd : MonoBehaviour
         Vector3 rightTop = cam.ScreenToWorldPoint(new Vector3(cam.pixelWidth, cam.pixelHeight, 10));
         Vector3 finish = rightTop - leftBottom;
         gameObject.transform.localScale = new Vector3(finish.x, finish.y, 1);
-        print(finish.x);
-        print(finish.y);
+        print("화면비율x" + finish.x);
+        print("화면비율y" + finish.y);
         //1. 비율맞추는 거 물어보기 11:20 비율로 되서 화면 겁내이상함.
     }
 
