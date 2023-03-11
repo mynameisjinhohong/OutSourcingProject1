@@ -24,8 +24,6 @@ public class Devil_lyd : MonoBehaviour
     public State state;
     Vector3 pos;
 
-    private int Count = 0;
-    public int devilCount;
     //스케일커지도록
     public float scaleSpeed = 2f;
     private float maxSizeX = 40f;
@@ -75,35 +73,8 @@ public class Devil_lyd : MonoBehaviour
             transform.position += moveDirection * moveSpeed * Time.deltaTime;
         }
         ViewPos();
-       /* currentTime += Time.deltaTime;
-        if(currentTime > createTime)
-        {
-
-        }*/
-        if (Input.GetMouseButton(0))
-        {
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hitinfo;
-            //한 -3.5부터 죽일수있도록
-            if (Physics.Raycast(ray, out hitinfo))
-            {
-                if (hitinfo.transform.name == "Devil")
-                {
-
-                    Debug.Log("클릭");
-                    //사운드 켜기
-                    //클릭이펙트 켜주기
-                    //+100점 이미지 띄우기
-                    //점수 100점
-                    GameManager.instance.score += 100; //에러뜸
-                    devilCount++;
-                    Count = devilCount;
-                    Destroy(gameObject);
-                }
-
-                print(hitinfo.transform.name);
-            }
-        }
+     
+        
 
         
 

@@ -49,11 +49,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  targetTransform: {fileID: 0}
-  minPos: {x: -4.6, y: -0.69}
-  maxPos: {x: 4.55, y: 2.75}
   state: 0
-  scaleSpeed: 3
+  scaleSpeed: 5
 --- !u!212 &800411632764840972
 SpriteRenderer:
   m_ObjectHideFlags: 0
