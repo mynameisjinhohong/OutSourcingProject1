@@ -12,7 +12,7 @@ public class Devil_lyd : MonoBehaviour
     //데빌 프리팹을 넣어주기
     Camera cam;
 
-    public float speed = 10f;
+    public float speed = 5f;
 
     //fly 상태랑 화면에서 움직이는 상태 만들어주기
     public enum State
@@ -22,15 +22,13 @@ public class Devil_lyd : MonoBehaviour
         Move
     }
     public State state;
-    Vector3 pos;
 
     //스케일커지도록
     public float scaleSpeed = 2f;
-    private float maxSizeX = 40f;
-    private float maxSizeY = 40f;
+    private float maxSizeX = 1f;
+    private float maxSizeY = 1f;
 
-    private float moveSpeed = 3f;
-
+    Vector3 dir;
     
     // Start is called before the first frame update
     void Start()
@@ -38,20 +36,15 @@ public class Devil_lyd : MonoBehaviour
         
         cam = Camera.main;
         state = State.Big;
-        if(state == State.Move)
-        {
-            Vector3 viewPos = transform.position;
-            viewPos.x += Random.Range(-1f, 1f) * speed * Time.deltaTime;
-            viewPos.y += Random.Range(-1f, 1f) * speed * Time.deltaTime;
-            transform.position = viewPos;
-        }
-
+        float randomX = Random.Range(8f, -8f);
+        float randomY = Random.Range(4f, -2f);
+        dir = new Vector3(randomX, randomY, 0).normalized;
     }
 
+    
     // Update is called once per frame
     void Update()
     {
-        //1.오른쪽 마우스를 눌렀을 때 만약 이름이 Devil이면 죽는다. o
        
 
         if (state == State.Big && transform.localScale.x < maxSizeX  && transform.localScale.y < maxSizeY)
@@ -64,31 +57,48 @@ public class Devil_lyd : MonoBehaviour
         {
             state = State.Move;
             // 이동할 방향 계산
-            float moveX = Input.GetAxisRaw("Horizontal"); // 좌우 이동 입력
-            float moveY = Input.GetAxisRaw("Vertical"); // 상하 이동 입력
-            Vector3 moveDirection = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0f).normalized;
-            transform.position += moveDirection * moveSpeed * Time.deltaTime;
-            //Vector3 moveDirection = new Vector3(moveX, moveY, 0f).normalized;
+            if (Random.value == 1)
+            {
+                dir = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0).normalized;
+            }
+            transform.position += speed * Time.deltaTime * dir; 
+            ViewPos();
 
-            transform.position += moveDirection * moveSpeed * Time.deltaTime;
         }
-        ViewPos();
-     
-        
 
-        
+
+
+
 
     }
     private void ViewPos()
     {
         //화면밖으로 못나가게 하기
         Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
-        if (pos.x < 0f) pos.x = 0;
-        if (pos.x > 1f) pos.x = 1f;
-        if (pos.y < 0f) pos.y = 0f;
-        if (pos.y > 1f) pos.y = 1f;
+        if (pos.x < 0.06f)
+        {
+            pos.x = 0.06f;
+            dir.x *= -1;
+        }
+        if (pos.x > 0.93f)
+        { 
+            pos.x = 0.93f;
+            dir.x *= -1;
+        }
 
+        if (pos.y < 0.1f)
+        {
+            pos.y = 0.1f;
+            dir.y *= -1;
+        }
+
+        if (pos.y > 0.92f)
+        {
+            pos.y = 0.92f;
+            dir.y *= -1;
+        }
         transform.position = Camera.main.ViewportToWorldPoint(pos);
+        Debug.Log("위치좀" + pos);
     }
     /*void DevilMove()
     {

@@ -6,17 +6,22 @@ public class ClickManager_lyd : MonoBehaviour
 {
     Camera cam;
     public GameObject devilPre; //데빌 프리팹
-    public GameObject devilFactory; //데빌팩토리에서 데빌 프리팹이 생성되도록
+    //public GameObject devilFactory; //데빌팩토리에서 데빌 프리팹이 생성되도록
     public GameObject devilExplosion;
 
-    float currentTime = 0;
+    public AudioSource clickSound;
 
+    float currentTime = 0;
+    float randomX;
+    float randomY;
     public int devilCount = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        cam = Camera.main; 
+        cam = Camera.main;
+        
+
     }
 
     // Update is called once per frame
@@ -25,23 +30,30 @@ public class ClickManager_lyd : MonoBehaviour
         currentTime += Time.deltaTime;
         if (devilCount < 15 && currentTime > 3)
         {
-            GameObject go = Instantiate(devilPre);
-            go.transform.position = devilFactory.transform.position;
-            Debug.Log("eo");
+            randomX = Random.Range(-7.97f, 7.97f); //데빌이 나타날 x좌표 랜덤 생성
+            randomY = Random.Range(-2.46f, 4.48f); //데빌 나타날 y좌표 랜덤 생성
+            GameObject devil = (GameObject)Instantiate(devilPre, new Vector3(randomX, randomY, 0f), Quaternion.identity);
+            print(randomX);
+            print(randomY);
             currentTime = 0;
         }
-        else if (devilCount >= 15 && currentTime > 2)
+       else if (devilCount >= 15 && currentTime > 2)
         {
-            GameObject go = Instantiate(devilPre);
-            go.transform.position = devilFactory.transform.position;
-
+            randomX = Random.Range(-7.97f, 7.97f); //데빌이 나타날 x좌표 랜덤 생성
+            randomY = Random.Range(-2.46f, 4.48f); //데빌 나타날 y좌표 랜덤 생성
+            GameObject devil = (GameObject)Instantiate(devilPre, new Vector3(randomX, randomY, 0f), Quaternion.identity);
+            print(randomX);
+            print(randomY);
             currentTime = 0;
 
         }
         else if (devilCount >= 35 && currentTime > 1)
         {
-            GameObject go = Instantiate(devilPre);
-            go.transform.position = devilFactory.transform.position;
+            randomX = Random.Range(-7.97f, 7.97f); //데빌이 나타날 x좌표 랜덤 생성
+            randomY = Random.Range(-2.46f, 4.48f); //데빌 나타날 y좌표 랜덤 생성
+            GameObject devil = (GameObject)Instantiate(devilPre, new Vector3(randomX, randomY, 0f), Quaternion.identity);
+            print(randomX);
+            print(randomY);
             currentTime = 0;
 
         }
@@ -58,17 +70,20 @@ public class ClickManager_lyd : MonoBehaviour
 
                     Debug.Log("클릭");
                     //사운드 켜기
-                    //클릭이펙트 켜주기
+                    clickSound.Play();
                     //+100점 이미지 띄우기
                     //점수 100점
-                    //GameManager.instance.score += 100; //에러뜸
+                    GameManager.instance.score += 100; 
                     
+                    //클릭이펙트 켜주기
                     Instantiate(devilExplosion, hitinfo.transform.position, Quaternion.identity);
                     GameObject.Destroy(hitinfo.transform.gameObject);
                     devilCount++;
                     Debug.Log("죽었다");
 
                 }
+
+                
 
                 print(hitinfo.transform.name);
                 print(devilCount);
