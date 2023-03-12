@@ -36,6 +36,7 @@ public class Devil_lyd : MonoBehaviour
         
         cam = Camera.main;
         state = State.Big;
+        //화면안에서 움직일수있는 범위
         float randomX = Random.Range(8f, -8f);
         float randomY = Random.Range(4f, -2f);
         dir = new Vector3(randomX, randomY, 0).normalized;
@@ -57,10 +58,11 @@ public class Devil_lyd : MonoBehaviour
         {
             state = State.Move;
             // 이동할 방향 계산
-            if (Random.value == 1)
+            /*if (Random.value == 1)
             {
                 dir = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0).normalized;
-            }
+                print("렌덤레인지 실행중");
+            }*/
             transform.position += speed * Time.deltaTime * dir; 
             ViewPos();
 
@@ -75,9 +77,9 @@ public class Devil_lyd : MonoBehaviour
     {
         //화면밖으로 못나가게 하기
         Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
-        if (pos.x < 0.06f)
+        if (pos.x < 0.067f)
         {
-            pos.x = 0.06f;
+            pos.x = 0.067f;
             dir.x *= -1;
         }
         if (pos.x > 0.93f)
@@ -98,7 +100,6 @@ public class Devil_lyd : MonoBehaviour
             dir.y *= -1;
         }
         transform.position = Camera.main.ViewportToWorldPoint(pos);
-        Debug.Log("위치좀" + pos);
     }
     /*void DevilMove()
     {
