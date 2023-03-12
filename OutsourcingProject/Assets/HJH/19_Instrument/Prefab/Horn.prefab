@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9194132750081330017}
   - component: {fileID: 5990229082394550445}
   - component: {fileID: 6631607551922999821}
+  - component: {fileID: 3663381978745933729}
   m_Layer: 0
   m_Name: Horn
   m_TagString: Untagged
@@ -99,3 +100,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sound: {fileID: 8300000, guid: 187f8893e5056c449ae0c632fd672981, type: 3}
   instruments: 4
+--- !u!65 &3663381978745933729
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4689092946370067816}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 14.450001, y: 12.162665, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}

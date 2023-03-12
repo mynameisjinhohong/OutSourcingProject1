@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7090709195575614760}
   - component: {fileID: 4905969477294738319}
   - component: {fileID: 9017175765851466500}
+  - component: {fileID: 6346900481479753100}
   m_Layer: 0
   m_Name: Violin
   m_TagString: Untagged
@@ -99,3 +100,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sound: {fileID: 8300000, guid: 32f7aea773c9d4e458ea89a2d602106a, type: 3}
   instruments: 11
+--- !u!65 &6346900481479753100
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6119535850686734603}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 22.220001, y: 12.282691, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}

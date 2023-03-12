@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2638300196955096675}
   - component: {fileID: 813160171741959299}
   - component: {fileID: 7168609118633553681}
+  - component: {fileID: 4705226621814612620}
   m_Layer: 0
   m_Name: Harp
   m_TagString: Untagged
@@ -99,3 +100,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sound: {fileID: 8300000, guid: 86774e42aad0d4747aca9acd66f5537b, type: 3}
   instruments: 3
+--- !u!65 &4705226621814612620
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3735535262739400924}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 15.82, y: 25.225527, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}

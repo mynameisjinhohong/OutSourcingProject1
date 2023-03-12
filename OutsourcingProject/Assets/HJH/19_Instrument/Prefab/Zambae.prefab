@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6463337719687641896}
   - component: {fileID: 4175195375420690124}
   - component: {fileID: 7579093042656508609}
+  - component: {fileID: 695668189559935596}
   m_Layer: 0
   m_Name: Zambae
   m_TagString: Untagged
@@ -100,6 +101,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sound: {fileID: 8300000, guid: 0d42f223a3dc37a4bab27d58513f3b4d, type: 3}
   instruments: 12
+--- !u!65 &695668189559935596
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358599506233156041}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8.68, y: 14.4931755, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &4344552529686465705
 PrefabInstance:
   m_ObjectHideFlags: 0

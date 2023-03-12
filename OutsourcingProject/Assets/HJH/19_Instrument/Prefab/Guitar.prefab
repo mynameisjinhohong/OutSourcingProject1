@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4548724323264526242}
   - component: {fileID: 5997087028216286458}
   - component: {fileID: 7996135797336600639}
+  - component: {fileID: 1721701823475623560}
   m_Layer: 0
   m_Name: Guitar
   m_TagString: Untagged
@@ -99,3 +100,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sound: {fileID: 8300000, guid: 2f324c4f2d0c86247b4c6b42e246bd45, type: 3}
   instruments: 2
+--- !u!65 &1721701823475623560
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4117113749174154771}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10.35, y: 21.544722, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}

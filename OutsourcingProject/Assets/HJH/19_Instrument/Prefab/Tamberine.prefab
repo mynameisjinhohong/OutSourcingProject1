@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1594904472964767075}
   - component: {fileID: 6829203653051485129}
   - component: {fileID: 3000418086509536264}
+  - component: {fileID: 556505428924192039}
   m_Layer: 0
   m_Name: Tamberine
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1952459773516897782}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -99,3 +100,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sound: {fileID: 8300000, guid: 3003e3c897174484c9856ee850e85c28, type: 3}
   instruments: 8
+--- !u!65 &556505428924192039
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952459773516897782}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8.08, y: 6.6814637, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
