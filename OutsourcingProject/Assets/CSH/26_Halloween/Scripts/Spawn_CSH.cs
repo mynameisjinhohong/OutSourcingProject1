@@ -9,7 +9,9 @@ public class Spawn_CSH : MonoBehaviour
     BoxCollider rangeCollider;
     public GameObject enemyFactory1;
     public int spawnNum;
-    public float spawnTime=0;
+    float spawnTime=0;
+    public float balanceTime = 30;
+    public float protoSpawnTime;
     private void Awake()
     {
         rangeCollider = rangeObject.GetComponent<BoxCollider>();
@@ -47,19 +49,26 @@ public class Spawn_CSH : MonoBehaviour
         for (int i = 0; i < 1000; i++)
         {
             spawnTime++;
-            if (spawnTime < 30)
+            if (spawnTime < balanceTime)
             {
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(protoSpawnTime);
             }
             else
             {
                 //시간 비례로 주기가 빨라져야한다.
-                yield return new WaitForSeconds(30 / spawnTime);
+                yield return new WaitForSeconds(balanceTime / spawnTime);
             }
             // 생성 위치 부분에 위에서 만든 함수 Return_RandomPosition() 함수 대입
             GameObject enemy1 = Instantiate(enemyFactory1, Return_RandomPosition(), Quaternion.identity);
             //남은 개수 상승
-            GameObject.Find("HalloweenCanvas").GetComponent<HalloweenManager_CSH>().remains++;
+            if (GameObject.Find("HalloweenCanvas") == true)
+            {
+                GameObject.Find("HalloweenCanvas").GetComponent<HalloweenManager_CSH>().remains++;
+            }
+            else if(GameObject.Find("AlienCanvas") == true)
+            {
+
+            }
         }
     }
 }

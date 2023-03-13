@@ -7,6 +7,10 @@ public class ClickEvent_CSH : MonoBehaviour
     Camera cam;
     public AudioSource clickSound;
     public GameObject clickEffect;
+
+    public AudioSource AlienExplosionSound;
+    public GameObject AlienClickEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +26,9 @@ public class ClickEvent_CSH : MonoBehaviour
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             // Scence 에서 카메라에서 나오는 레이저 눈으로 확인하기
             //Debug.DrawRay(ray.origin, ray.direction * 10f, Color.red, 1f);
-            if (Physics.Raycast(ray, out RaycastHit raycastHit))
+            if (Physics.Raycast(ray, out RaycastHit raycastHit)) 
             {
+                //첫번째 게임
                 if (raycastHit.transform.name == "Dust(Clone)") //먼지를 클릭하면
                 {
                     //Score 상승
@@ -35,7 +40,19 @@ public class ClickEvent_CSH : MonoBehaviour
                     Instantiate(clickEffect, raycastHit.transform.position, Quaternion.identity);
                     GameObject.Destroy(raycastHit.transform.gameObject);
                 }
+                //두번째 게임
+                else if(raycastHit.transform.name == "Alien1(Clone)"|| raycastHit.transform.name == "Alien2(Clone)"|| raycastHit.transform.name == "Alien3(Clone)" || raycastHit.transform.name == "Missile(Clone)")
+                {
+                    //Score 상승
+                    GameManager.instance.score += 100;
+                    
+                    //외계인 파괴, 소리와 이펙트 재생
+                    AlienExplosionSound.Play();
+                    Instantiate(AlienClickEffect, raycastHit.transform.position, Quaternion.identity);
+                    GameObject.Destroy(raycastHit.transform.gameObject);
+                }
             }
+            
         }
     }
 }

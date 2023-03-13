@@ -464,7 +464,8 @@ MonoBehaviour:
   rangeObject: {fileID: 779087087}
   enemyFactory1: {fileID: 8584952765031205129, guid: b9d49a271b74fc44e99e54956d96d536, type: 3}
   spawnNum: 10
-  spawnTime: 0
+  balanceTime: 30
+  protoSpawnTime: 1
 --- !u!65 &779087089
 BoxCollider:
   m_ObjectHideFlags: 0
