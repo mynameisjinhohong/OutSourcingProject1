@@ -29,8 +29,12 @@ public class Piano_HJH : MonoBehaviour
         akbos = new List<List<int>>();
         List<int> list = new List<int>() { 0, 0, 4, 4, 5, 5, 4, 3, 3, 2, 2, 1, 1, 0, 4, 4, 3, 3, 2, 2, 1, 4, 4, 3, 3, 2, 2, 1, 0, 0, 4, 4, 5, 5, 4, 3, 3, 2, 2, 1, 1, 0 };
         List<int> list2 = new List<int>() { 4,2,2,3,1,1,0,1,2,3,4,4,4,4,2,2,2,3,1,1,0,2,4,4,2,2,2,1,1,1,1,1,2,3,2,2,2,2,2,3,4,4,2,2,3,1,1,0,2,4,4,2,2,2,};
+        List<int> list3 = new List<int>() { 2, 4, 2, 4, 0, 0, 0, 2, 4, 2, 4, 1, 1, 1, 2, 4, 2, 4, 3, 3, 3, 3, 3, 2, 2, 1, 1, 0, 3, 5, 4, 5, 4, 2, 3, 2, 1, 2, 3, 1, 2, 1, 2, 4, 5, 5, 5, 5, 5, 0, 0, 4, 4, 0, 0};
+        List<int> list4 = new List<int>() { 2, 4, 4, 2, 4, 4, 5, 5, 5, 5, 5, 4, 4, 4, 4, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 4, 4, 4, 2, 4, 4, 5, 5, 2, 2, 3, 3, 3, 3, 2, 2, 2, 2, 1, 1, 4, 4, 0 };
         akbos.Add(list);
         akbos.Add(list2);
+        akbos.Add(list3);
+        akbos.Add(list4);
         GameManager.instance.score = 1000;
         nowAkbo = Random.Range(0, akbos.Count);
         nowIdx = 0;
