@@ -16,15 +16,15 @@ public class Plant_lyd : MonoBehaviour
     {
         //transform.position += Vector3.down * speed * Time.deltaTime;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    /*private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("DestroyZone"))
         {
             Destroy(gameObject);
             Debug.Log("트리거 발동!");
         }
-    }
-    /*private void OnTriggerEnter2D(Collider2D other)
+    }*/
+    private void OnTriggerEnter2D(Collider2D other)
     {
 
         if (other.gameObject.CompareTag("DestroyZone"))
@@ -32,6 +32,6 @@ public class Plant_lyd : MonoBehaviour
             Destroy(gameObject);
             Debug.Log("트리거 발동!");
         }
-    }*/
+    }
    
 }
