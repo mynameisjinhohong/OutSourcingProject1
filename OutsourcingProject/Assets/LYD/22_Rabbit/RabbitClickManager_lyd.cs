@@ -22,7 +22,7 @@ public class RabbitClickManager_lyd : MonoBehaviour
             // 죽일수있도록
             if (Physics.Raycast(ray, out hitinfo))
             {
-                if (hitinfo.name == "Devil(Clone)")
+                if (hitinfo.collider.name == "Devil(Clone)")
                 {
 
                     Debug.Log("클릭");
@@ -33,11 +33,13 @@ public class RabbitClickManager_lyd : MonoBehaviour
                     GameManager.instance.score += 100;
 
                     //클릭이펙트 켜주기
-                   // Instantiate(, hitinfo.transform.position, Quaternion.identity);
+                    // Instantiate(, hitinfo.transform.position, Quaternion.identity);
                     //Instantiate(, hitinfo.point, Quaternion.identity);
 
                     GameObject.Destroy(hitinfo.transform.gameObject);
 
                 }
             }
+        }
+    }
 }
