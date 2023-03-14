@@ -14,6 +14,12 @@ public class ClickEvent_CSH : MonoBehaviour
     public AudioSource TreasureSound;
     public GameObject TreasureEffect;
 
+    public AudioSource DrinkSound;
+    public GameObject DrinkEffect;
+
+    public AudioSource TargetSound;
+    //public GameObject TargetEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -67,8 +73,26 @@ public class ClickEvent_CSH : MonoBehaviour
                     Instantiate(TreasureEffect, raycastHit.transform.position, Quaternion.identity);
                     GameObject.Destroy(raycastHit.transform.gameObject);
                 }
+
+                //´Ù¼¸¹øÂ° °ÔÀÓ
+                else if(raycastHit.transform.name == "TargetPan(Clone)")
+                {
+                    //Score »ó½Â
+                    GameManager.instance.score += 100;
+                    //°ú³áÆÇ ÆÄ±«,¼Ò¸®¿Í ÀÌÆåÆ® Àç»ý
+                    TargetSound.Play();
+                    Instantiate(TreasureEffect, raycastHit.transform.position, Quaternion.identity);
+                    GameObject.Destroy(raycastHit.transform.gameObject);
+                    //Àç»ý¼º
+                    Invoke("otherSummon",2f);
+                }
             }
             
         }
+    }
+
+    public void otherSummon()
+    {
+        GameObject.Find("SpawnZone").GetComponent<TargetSpawn_CSH>().Summon();
     }
 }
