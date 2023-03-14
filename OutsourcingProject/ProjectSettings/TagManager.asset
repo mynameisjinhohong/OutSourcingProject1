@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - FxTemporaire
+  - Cake
+  - Plant
+  - Carrot
+  - DestroyZone
   layers:
   - Default
   - TransparentFX
@@ -11,8 +16,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - DestroyZone
+  - Plant
   - 
   - 
   - 
