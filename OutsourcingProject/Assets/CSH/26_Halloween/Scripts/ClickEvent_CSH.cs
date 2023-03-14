@@ -11,6 +11,9 @@ public class ClickEvent_CSH : MonoBehaviour
     public AudioSource AlienExplosionSound;
     public GameObject AlienClickEffect;
 
+    public AudioSource TreasureSound;
+    public GameObject TreasureEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +52,19 @@ public class ClickEvent_CSH : MonoBehaviour
                     //외계인 파괴, 소리와 이펙트 재생
                     AlienExplosionSound.Play();
                     Instantiate(AlienClickEffect, raycastHit.transform.position, Quaternion.identity);
+                    GameObject.Destroy(raycastHit.transform.gameObject);
+                }
+                //세번째 게임
+                else if(raycastHit.transform.name == "TreasureBox(Clone)")
+                {
+                    //Score 상승
+                    GameManager.instance.score += 100;
+                    //남은 개수 줄이기
+                    GameObject.Find("TreasureCanvas").GetComponent<TreasureManager_CSH>().remains--;
+
+                    //상자 파괴,소리와 이펙트 재생
+                    TreasureSound.Play();
+                    Instantiate(TreasureEffect, raycastHit.transform.position, Quaternion.identity);
                     GameObject.Destroy(raycastHit.transform.gameObject);
                 }
             }
