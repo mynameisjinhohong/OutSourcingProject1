@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Plant_lyd : MonoBehaviour
 {
-    //public int speed = 5;
+    private int speed = 3;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +15,7 @@ public class Plant_lyd : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //transform.position += Vector3.down * speed * Time.deltaTime;
+        transform.position += Vector3.down * speed * Time.deltaTime;
     }
     /*private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -30,7 +31,6 @@ public class Plant_lyd : MonoBehaviour
         if (other.gameObject.CompareTag("DestroyZone"))
         {
             Destroy(gameObject);
-            Debug.Log("트리거 발동!");
         }
     }
    

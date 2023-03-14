@@ -5,7 +5,7 @@ using UnityEngine;
 public class Carrot : MonoBehaviour
 {
     [SerializeField] GameObject[] plantPre;
-    [SerializeField] float secondSpawn = 0.5f;
+    [SerializeField] float secondSpawn = 0.3f;
     [SerializeField] float minTras;
     [SerializeField] float maxTras;
 
